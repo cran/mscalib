@@ -22,8 +22,6 @@ as.data.frame.mlist<-function(x,row.names=NULL,optional = FALSE)
     ##e names(tmp)
     res <- NULL
     tmp <- as.matrix(x)
-    print("dim")
-    print(dim(tmp))
     ntmp <- names(x)
     res <- data.frame(info=as.character(ntmp),tmp)
     res
@@ -87,7 +85,7 @@ image.mlist<-function(x,what="",col=terrain.colors(100),...)
     ##e data(mvl)
     ##e image(mvl,what="lengthmv")
     cal<-x
-    rm(x)
+    rm(x) # do not like to use x.
     if(length(cal)==0){
       warning("List has length 0")
       return()
@@ -134,8 +132,8 @@ image.mlist<-function(x,what="",col=terrain.colors(100),...)
                                         #define layout
     nf <- layout(matrix(c(1,2),1,2),widths=c(5,1), TRUE)
     par(mar=c(3,3,2,0.5))
- 
-    image(t(hello) , main=what,xaxs="i",yaxs="i",axes=FALSE,col=col,...)
+                                        #2.03.2004    image(t(hello) , main=what,xaxs="i",yaxs="i",axes=FALSE,col=col,...)
+    image(hello , main=what,xaxs="i",yaxs="i",axes=FALSE,col=col,...)
     if((length(Y)-1)>0)
       {
         axis( 1 , at=seq(0,1,1/(length(Y)-1)) , labels=names(sort(Y)))
@@ -242,10 +240,7 @@ subset.mlist <- function(x,subset,...)
     ##+ subset : logical expression.
     ##e data(mvl)
     ##e mvl<-subset(mvl,lengthmv>30)
-    
-    
     u <- as.data.frame(x)
-    print("test")
     if (missing(subset))
       {
         r <- TRUE

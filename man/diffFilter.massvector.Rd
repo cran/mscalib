@@ -2,16 +2,17 @@
 \alias{diffFilter.massvector}
 \title{ Abundant Differences}
 \description{ Removes mass differences from the massvector. }
-\usage{\method{diffFilter}{massvector}(object,listofdiffs,higher=TRUE,error=0.05,uniq=TRUE,...)}
+\usage{\method{diffFilter}{massvector}(object,listofdiffs,higher=TRUE,error=0.05,uniq=TRUE,prune=TRUE,...)}
 \arguments{
 \item{...}{ further parameters.}
 \item{error}{ How much the differences can diviate from the differences given in listofdiffs.}
 \item{higher}{ logical;\code{TRUE} - remove higher mass, \code{FALSE} = remove lower mass.}
 \item{listofdiffs}{}
 \item{object}{ massvector}
+\item{prune}{ logical;\code{TRUE} - remove mass, \code{FALSE} = return modified mass.}
 \item{uniq}{}
 }
-\details{ Removes one of the masses contributing to a mass difference given in the list of differences.  Can be used if a variable modification are present in the massvector but can not be considered by the identification software. }
+\details{ Removes one of the masses contributing to a mass difference given in the list of differences.  Can be used if a variable modification are present in the massvector but can not be considered by the identification software. It also can be used to return the modified masses. }
 \value{
 \item{ massvector }{ filtered massvector.}
 }

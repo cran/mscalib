@@ -6,7 +6,6 @@
                                         #hist
                                         #print
 
-
 #comparing two massvectors.
 compare<-function(object,...)
   {

@@ -11,9 +11,9 @@
 \item{ppm}{ \code{TRUE}- describe the error as relative error. \code{FALSE}- describe the error as absolute error.}
 \item{uniq}{ \code{TRUE}- use only mass closest to calibration mass. \code{FALSE}- use all masses closer to the calibration mass then given error.}
 }
-\details{ \bold{Internal calibration} aligns masses of  peaks to known masses and determines by linear regression a affine  function that describing the relative error. The internal  correction fails when no calibration peaks can be found. }
+\details{ \bold{Internal calibration} aligns masses of  peaks to known masses and determines by linear regression a affine  function that describing the relative error. The internal  correction fails when no calibration peaks can be found.   }
 \value{
-\item{ calibintstat }{ object of class calibintstat. }
+\item{ calibintstat }{ object of class calibintstat.}
 }
 \references{\item{-}{Wolski \url{http://www.molgen.mpg.de/~wolski/mscalib}}
 }

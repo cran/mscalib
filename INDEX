@@ -136,6 +136,7 @@ recalibrate.massvector
                         Precalibration
 recalibrate.massvectorlist
                         Precalibration
+residuals.massvector    Residues of 2 massvectors.
 setParms<-.mylistobj    Field Access
 setParms<-.myobj        Field Access
 subset.mlist            Subset mlist

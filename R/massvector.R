@@ -93,7 +93,7 @@ massvector <- function(info,masses,tcoor)
       if(length(tcoor)!=2){stop("There must be two coordinates!\n")}
       attr(masses,"tcoor") <- tcoor
     }
-  attr(masses,"allow")<-c("info","tcoor")
+  attr(masses,"allow")<-c("info","tcoor","gelcoor")
   class(masses)<-c("massvector","myobj","matrix")
   return(masses)
 }
@@ -482,7 +482,7 @@ print.massvector <- function(x,quote=FALSE,...)
   }
 
 
-compare.massvector <- function(object,mv2,plot=TRUE,error=1000,ppm=TRUE,...)
+compare.massvector <- function(object,mv2,plot=TRUE,error=1000,ppm=TRUE,uniq=FALSE,...)
   {
     ##t Compares massvectors
     ##- Compares the masses in the massvectors. Returns basic statistics about the matching peaks.
@@ -493,28 +493,30 @@ compare.massvector <- function(object,mv2,plot=TRUE,error=1000,ppm=TRUE,...)
     ##+ error : size of the measurment error (default 150 ppm)
     ##+ ppm : \code{TRUE} - relative error in parts per million, \code{FALSE} - absolute error.
     ##+ ... : further parameters.
+    ##+ uniq : logical : default \code{FALSE}. Select all peaks matching in a massrange.
     ##v FMSTAT : Fowlkes & Mallows statistik (nr matching)/sqrt(length(object)*length(mv2))
     ##v min : smallest error
     ##v ... : 1st qu. , mean, median, 3rd qu., max and stdv of error.
+    ##sa resid
     ##e data(mv1)
     ##e data(mv2)
     ##e compare(mv1,mv2,error=5000,ppm=TRUE,uniq=TRUE)
     ##e compare(mv2,mv1,error=1,ppm=FALSE,uniq=TRUE)
-    
+
+    main<-list(...)$main
     if(!inherits(mv2,"massvector"))
       stop("Second arg are not a massvector!\n")
-    match<-getaccC(mass(object) , mass(mv2) , error=error , ppm=ppm , uniq=TRUE)
-    print(match)
+    match<-getaccC(mass(object) , mass(mv2) , error=error , ppm=ppm , uniq=uniq)
     if(ppm)
       {
         if(plot)
-          plot(object[match$plind,1],(object[match$plind,1]-mv2[match$calind,1])*1e6/mv2[match$calind,1],main=paste(info(object),info(mv2)),xlab="mass",ylab="error[ppm]")
+          plot(object[match$plind,1],(object[match$plind,1]-mv2[match$calind,1])*1e6/mv2[match$calind,1],main=ifelse(is.null(main),paste(info(object),info(mv2)),main),xlab="mass",ylab="error[ppm]")
         res <- (object[match$plind,1]-mv2[match$calind,1])*1e6/mv2[match$calind,1]
       }
     else
       {
         if(plot)
-          plot(object[match$plind,1],(object[match$plind,1]-mv2[match$calind,1]),main=paste(info(object),info(mv2)),xlab="mass",ylab="Da")
+          plot(object[match$plind,1],(object[match$plind,1]-mv2[match$calind,1]),main=ifelse(is.null(main),paste(info(object),info(mv2)),main),xlab="mass",ylab="Da")
         res <- (object[match$plind,1]-mv2[match$calind,1])
         
       }
@@ -1161,12 +1163,13 @@ getintcalib.massvector <- function(object,calib,error=500,uniq=FALSE,ppm=TRUE,..
     ##d peaks to known masses and determines by linear regression a affine
     ##d function that describing the relative error. The internal
     ##d correction fails when no calibration peaks can be found.
+    ##d 
     ##+ object : massvector
     ##+ calib : massvector with calibration masses
     ##+ error : assumed measurment error.
     ##+ uniq : \code{TRUE}- use only mass closest to calibration mass. \code{FALSE}- use all masses closer to the calibration mass then given error.
     ##+ ppm : \code{TRUE}- describe the error as relative error. \code{FALSE}- describe the error as absolute error.
-    ##v calibintstat : object of class calibintstat. 
+    ##v calibintstat : object of class calibintstat.
     ##sa applyintcalib.massvector, getintcalib.massvector, correctinternal.massvectorlist, calibintstat
     ##r Wolski \url{http://www.molgen.mpg.de/~wolski/mscalib}
                                         #peaklist - peaklist.
@@ -1348,15 +1351,16 @@ gamasses.massvector <- function(object,accur = 0.1,abund = 50,...)
   }
 
 
-diffFilter.massvector<-function(object,listofdiffs,higher=TRUE,error=0.05,uniq=TRUE,...)
+diffFilter.massvector<-function(object,listofdiffs,higher=TRUE,error=0.05,uniq=TRUE,prune=TRUE,...)
   {
     ##t Abundant Differences
     ##- Removes mass differences from the massvector.
     ##d Removes one of the masses contributing to a mass difference given in the list of differences.
-    ##d Can be used if a variable modification are present in the massvector but can not be considered by the identification software.
+    ##d Can be used if a variable modification are present in the massvector but can not be considered by the identification software. It also can be used to return the modified masses.
     ##+ object : massvector
     ##+ listoffdiffs : massvector with mass differences
     ##+ higher : logical;\code{TRUE} - remove higher mass, \code{FALSE} = remove lower mass.
+    ##+ prune : logical;\code{TRUE} - remove mass, \code{FALSE} = return modified mass.
     ##+ error : How much the differences can diviate from the differences given in listofdiffs.
     ##+ ... : further parameters.
     ##v massvector : filtered massvector.
@@ -1366,38 +1370,49 @@ diffFilter.massvector<-function(object,listofdiffs,higher=TRUE,error=0.05,uniq=T
     ##e res<-getdiff(mv1,range=c(0,100))
     ##e diffFilter(mv1,res,higher=TRUE)
     ##e diffFilter(mv1,res,higher=FALSE)
-    
-    
+    if(!inherits(listofdiffs,"massvector"))
+      stop("second arg has to be a massvector\n")
     if(length(object)<=1)
       {
         return(object)
       }
     pl <- object[,1]
-    pl <- sort(pl)
+    names(pl)<-1:length(pl)
+    pl <- sort(pl) # should be sorted anyway.
     res <- NULL
     ldiff<-listofdiffs[,1] # get the difference masses.
-    mind <- min(ldiff)-1
-    maxd <- max(ldiff)+1
-    
     for(x in 1:(length(pl)-1))
       {
-        diffpl <- sort(diff(pl,x))
-        
+        diffpl <- sort(diff(pl,x)) # computes differences
         tmp <- getaccC(diffpl,ldiff,error=error,ppm=FALSE,uniq=uniq)
         ind <- as.numeric(names(diffpl))[tmp$plind]
         if(higher)
           {
-            res <- c(res,(ind))
+            res <- c(res,ind)
           }
         else
           {
             res<-c(res , ind-x )
           }
       }
-    if(length(res)>0)
-      return(object[-res,])
+    if(prune)
+      {
+        if(length(res)>0)
+          {
+            #cat("length : ",length(object),"\n")
+            #print(res)
+            return(object[-res,])
+          }
+        else
+          return(object)
+      }
     else
-      return(object)
+      {
+        if(length(res)>0)
+          return(object[res,])
+        else
+          return(object[NULL,])
+      }
   }
 
 getdiff.massvector<-function(object,range=c(0,100),...)
@@ -1466,7 +1481,6 @@ writeF.massvector<-function(object,path,file=info(object),ext="txt",...)
     ##e writeF(mv1,".") # writes the file in the home directory.
     ##e readF(massvector(info(mv1)),".")
     ##e file.remove(paste(info(mv1),".txt",sep=""))
-    
     if(missing(path))
       {
         path<-"."
@@ -1511,13 +1525,9 @@ readF.massvector<-function(object,path,file=info(object),ext="txt",...)
     con<-file(filep,"r")
     res <- readLines(con=filep,n=-1)
     close(con)
-    #return(res)
-    
     res1 <- unlist(strsplit(res[1],":"))
     object<-info(object,sub(">","",res1[1]))
-    
     setParms(object) <- list(tcoor= unlist(strsplit(res1[2],",")))
-   # return(object)
     intern<-function(x){as.numeric(unlist(strsplit(x,"\t")))}
     res <- t(sapply(res[2:length(res)],intern))
     res<-res[order(res[,1]),]
@@ -1527,3 +1537,33 @@ readF.massvector<-function(object,path,file=info(object),ext="txt",...)
   }
 
 
+
+residuals.massvector<-function(object,fmass,error=250,ppm=TRUE,uniq=TRUE,...)
+{
+  ##t Residues of 2 massvectors.
+  ##- Computes Residues of 2 massvectors.
+  ##d Computes the mass differences between aligned masses of two massvectorlists.
+  ##+ object : object of class massvector. Use constructor \code{massvector()}
+  ##+ fmass : object of class massvector.
+  ##+ error : the assumed difference between the aligned peaks either in ppm or in Da.
+  ##+ ppm : logical; if TRUE then the error must be specified in ppm.
+  ##sa getaccC,compare
+  ##e data(mv1)
+  ##e data(mv2)
+  ##e plot(resid(mv1,mv2,error=250,uniq=TRUE))
+
+  if(!inherits(fmass,"massvector"))
+    stop("second arg must be massvector to\n")
+  mmatch<-getaccC(mass(object),mass(fmass),error=error,ppm=ppm,uniq=uniq)
+  
+  if(length(mmatch$plind)>0)
+    {
+      ttmp <- object[mmatch$plind,1]-fmass[mmatch$calind,1]
+      res<-cbind(fmass[mmatch$calind,1], ttmp)
+      return(massvector(info(object),res))
+    }
+  else
+    {
+      return(object[NULL,])
+    }
+}

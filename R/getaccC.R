@@ -19,33 +19,35 @@ getaccC<- function(pl,cal,error=500,ppm=TRUE,uniq=FALSE)
   if(length(pl)>0 & length(cal)>0)
   {
     if(uniq)
-    {
-     res <- .C("getaccU", 
-              as.double(pl), 
-              as.integer(lpl),  
-              as.double(cal), 
-              as.integer(lcal),
-              as.double(error),
-              as.integer(plind),
-              as.integer(calind),
-              as.integer(ind),
-              as.integer(ppm),
-       )
+      {
+      res <- .C("getaccU", 
+                as.double(pl), 
+                as.integer(lpl),  
+                as.double(cal), 
+                as.integer(lcal),
+                as.double(error),
+                as.integer(plind),
+                as.integer(calind),
+                as.integer(ind),
+                as.integer(ppm),
+                PACKAGE="mscalib"
+                )
     }
     else
-    {
-    res <- .C("getaccD", 
-              as.double(pl), 
-              as.integer(lpl),  
-              as.double(cal), 
-              as.integer(lcal),
-              as.double(error),
-              as.integer(plind),
-              as.integer(calind),
-              as.integer(ind),
-              as.integer(ppm),
-       )
-    }
+      {
+        res <- .C("getaccD", 
+                  as.double(pl), 
+                  as.integer(lpl),  
+                  as.double(cal), 
+                  as.integer(lcal),
+                  as.double(error),
+                  as.integer(plind),
+                  as.integer(calind),
+                  as.integer(ind),
+                  as.integer(ppm),
+                  PACKAGE="mscalib"
+                  )
+      }
    }
    else{
     return(list(plind=NULL,calind=NULL))

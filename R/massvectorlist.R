@@ -1,4 +1,5 @@
-#Copyright 2004, W. Wolski, all rights reserved.
+
+                                        #Copyright 2004, W. Wolski, all rights reserved.
                                         #massvector list.
 massvectorlist <- function(experiment,data,project,...)
   {
@@ -100,7 +101,6 @@ as.list.massvectorlist<-function(x,...)
     ##e res<-as.list(mvl)
     ##e class(res)
     al <- attr(x,"allow")
-    print(al)
     for(u in al)
       {
         attr(x,u)<-NULL
@@ -142,8 +142,7 @@ histLengths <- function(x,main=info(x),xlab="length of massvectors",...)
     ##+ xlab : length of massvectors.
     ##+ ... : further parameters.
     ##sa \link[base]{hist}
-
-    ll <- lapply(mvl,length)
+    ll <- lapply(x,length)
     res <- hist.default(unlist(ll),xlab="massvector length",main=main,border=1,...)
   }
 
@@ -833,7 +832,7 @@ gamasses.massvectorlist <- function(object,accur=0.1,abund=50,...)
 
 
 
-diffFilter.massvectorlist <- function(object,listofdiffs,higher=TRUE,error=0.05,uniq=TRUE,...)
+diffFilter.massvectorlist <- function(object,listofdiffs,higher=TRUE,error=0.05,uniq=TRUE,prune=FALSE,...)
 {
   ##t Abundant Differences
   ##- Removes masses from the massvector.
@@ -847,6 +846,7 @@ diffFilter.massvectorlist <- function(object,listofdiffs,higher=TRUE,error=0.05,
   ##+ listoffdiffs : massvector with mass differences
   ##+ higher : \code{TRUE} - remove higher mass, \code{FALSE} = remove lower mass.
   ##+ error : How much the differences can diviate from the differences given in listofdiffs
+  ##+ prune : logical;default = \code{TRUE} - removes modified mass; \code{FALSE} - return modified mass.
   ##v massvector : filtered massvector.
   ##r Wolski
   ##e data(mvl)
@@ -855,7 +855,7 @@ diffFilter.massvectorlist <- function(object,listofdiffs,higher=TRUE,error=0.05,
   ##e res<-gamasses(res,abund=400)
   ##e test<-diffFilter(mvl,res,higher=TRUE,error=0.1,uniq=TRUE)
   ##e test
-  res <- lapply(object,diffFilter, listofdiffs, higher=higher, error=error,uniq=uniq)
+  res <- lapply(object,diffFilter, listofdiffs, higher=higher, error=error,uniq=uniq,prune=prune)
   res <- massvectorlist(experiment(object),res,project=project(object))
   res
 }

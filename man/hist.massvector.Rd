@@ -1,7 +1,7 @@
 \name{hist.massvector}
 \alias{hist.massvector}
 \title{ Histograms}
-\description{ It either computes a normal histgram of the masses and intensities, or computes a fine graded histogram of the masses to show abundant masses. }
+\description{ Histograms }
 \usage{\method{hist}{massvector}(x,accur = 0.1,abund = 0, main=info(x) ,xlab="m/z",xlim=c(min(mass(x)),max(mass(x))),add=FALSE,col=1,...)}
 \arguments{
 \item{...}{ further plotting arguments.}
@@ -19,7 +19,6 @@
 }
 \examples{
  data(mv1)
- hist(mv1,normal=TRUE)
- hist(mv1,normal=FALSE)
+ hist(mv1)
 }
 \keyword{misc}
