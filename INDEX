@@ -1,0 +1,166 @@
+[.caliblist             Extract Parts of a Caliblist.
+[.massvector            Extract Parts of an Massvector
+[.massvectorlist        Extract Parts of an Massvectorlist.
+[Assing.massvectorlist
+                        Replace Parts of Massvectorlist
+[[Assing.caliblist      Replace calibstat object in the caliblist.
+[[Assing.massvectorlist
+                        Replace Parts of an Object
+applycalib.calibintlist
+                        Internal Calibration
+applycalib.calibintstat
+                        Internal Calibration
+applycalib.calibrelist
+                        Precalibration
+applycalib.calibrestat
+                        Precalibration
+applycalib.calibspline
+                        External Calbiration
+applyextcalib.massvector
+                        External Calbiration
+applyextcalib.massvectorlist
+                        External Calbiration
+applyintcalib.massvector
+                        Internal Calibration
+applyintcalib.massvectorlist
+                        Internal Calibration
+applyrecalib.massvector
+                        Precalibration
+applyrecalib.massvectorlist
+                        Recalibration
+as.data.frame.caliblist
+                        Data Frames
+as.data.frame.massvectorlist
+                        Data Frames
+as.list.massvectorlist
+                        List
+as.lm.calibintstat      Fitting Linear Models
+as.matrix.caliblist     Matrices
+as.matrix.massvector    Matrices
+as.matrix.massvectorlist
+                        Matrices
+as.vector.calibintstat
+                        Coerces to vectors
+as.vector.calibrestat   Coerces to vector
+c.massvector            Combine Massvectors into one Massvector.
+c.massvectorlist        Combine
+cal                     Calibration masses
+calib                   Massvector with Calibration Masses
+calibexternal.massvector
+                        External Calbiration
+calibexternal.massvectorlist
+                        External Calbiration
+calibintstat            Constructor
+caliblist               Constructor
+calibrestat             Constructor
+calibspline             Constructor
+compare.massvector      Compares massvectors
+correctinternal.massvector
+                        Internal Calibration
+correctinternal.massvectorlist
+                        Internal Calibration
+diffFilter.massvector   Abundant Differences
+diffFilter.massvectorlist
+                        Abundant Differences
+experiment.mlist        Info Acces
+gamasses.massvector     Abundant masses
+gamasses.massvectorlist
+                        Abundant masses
+getPPGmasses            PPG masses
+getaccC                 Find Matching Masses
+getcoorBruker           Coordinates on Sample support.
+getdiff.massvector      Massdifferences
+getdiff.massvectorlist
+                        Massdifferences
+getextcalib.massvector
+                        External Error Model
+getextcalib.massvectorlist
+                        External Error Model
+getglobalcalib.massvectorlist
+                        Set Based Internal Calbiration
+getintcalib.massvector
+                        Internal Calbiration.
+getintcalib.massvectorlist
+                        Internal Calbiration
+getrecalib.massvector   Precalibration
+getrecalib.massvectorlist
+                        Precalibration
+globalcalib.massvectorlist
+                        Set Based Internal Calibration
+hist.calibintlist       Histogram Plot
+hist.calibrelist        Histogram Plot
+hist.calibstat          Histogram
+hist.massvector         Histograms
+hist.massvectorlist     Histograms
+hist.mylistobj          hist
+histLengths             Histograms
+image.massvector        Display a Color Image
+image.mlist             Display a Color Image
+image.mylistobj         image
+info.massvector         Info Acces
+info.mylistobj          Info Acces
+length.massvector       Length of Massvector
+mass.massvector         Mass Access.
+massvector              Constructor
+massvectorlist          Constructor
+max.massvector          Maxima and Minima
+mget.massvector         Field Access
+mget.mlist              Field Access
+mget.mylistobj          Field Access
+mget.myobj              Field Access
+min.massvector          Maxima and Minima
+mv1                     Massvector with experimentally determined
+                        peptide masses.
+mvFilter.massvector     Filtering Massvector
+mvFilter.massvectorlist
+                        Filtering Massvector
+mvl                     A list of 333 massvectors with experimentally
+                        determined peptide masses.
+peaks.massvector        Data Access
+plot.calibintlist       Calibintlist Plotting
+plot.calibintstat       Calibinstat Plotting
+plot.caliblist          plot
+plot.calibrelist        Plot
+plot.calibspline        Calibspline Plotting
+plot.calibstat          plot
+plot.massvector         Massvector Plotting
+plot.massvectorlist     Massvectorlist Plotting
+plot.mylistobj          plot
+ppg                     A list of 12 massvectors wiht ppg masses.
+print.calibintstat      Print calibintstat
+print.caliblist         Print caliblist
+print.calibrestat       Print Calibrestat Object
+print.calibspline       Print Calibspline Object
+print.calibstat         print
+print.massvector        Print massvector
+print.massvectorlist    Print massvectorlist
+project.massvectorlist
+                        Acces
+readBruker.massvector   Read peaklist.xml
+readBruker.massvectorlist
+                        Read Bruker XML File
+readF.massvector        Read Massvector.
+readF.massvectorlist    Reads massvectorlist
+recalibrate.massvector
+                        Precalibration
+recalibrate.massvectorlist
+                        Precalibration
+setParms<-.mylistobj    Field Access
+setParms<-.myobj        Field Access
+subset.list             Subset mlist
+summary.calibintstat    Calibintstat Summaries
+summary.caliblist       Massvector Summaries
+summary.calibspline     Calibspline Summaries
+summary.calibstat       Calibstat summary
+summary.massvector      Massvector Summaries
+summary.massvectorlist
+                        Massvector Summaries
+undocumented            Undocumented functions
+unlist.massvectorlist   Flatten massvectorlist
+writeF.massvector       Write massvector
+writeF.massvectorlist   Write massvectorlist
+wsFilter.massvector     Smilanski Filtering
+wsFilter.massvectorlist
+                        Smilanski Filtering
+wsdist.massvector       Wool Smilanski Distance Matrix
+wsiFilter.massvector    Smilanski Filtering

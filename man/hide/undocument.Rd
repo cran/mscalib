@@ -1,0 +1,47 @@
+\name{undocumented}
+\alias{applycalib}
+\alias{applyextcalib}
+\alias{applyintcalib}
+\alias{applyrecalib}
+\alias{calibexternal}
+\alias{compare}
+\alias{correctinternal}
+\alias{diffFilter}
+\alias{distance}
+\alias{experiment}
+\alias{FullWidthatHalfMaximum}
+\alias{gamasses}
+\alias{getcalib}
+\alias{getdiff}
+\alias{getextcalib}
+\alias{getglobalcalib}
+\alias{getintcalib}
+\alias{getrecalib}
+\alias{globalcalib.default}
+\alias{globalcalib}
+\alias{info}
+\alias{join.default}
+\alias{join}
+\alias{mass}
+\alias{mget}
+\alias{mmod}
+\alias{mod}
+\alias{mvFilter}
+\alias{peaks.default}
+\alias{peaks}
+\alias{project}
+\alias{readBruker}
+\alias{recalibrate}
+\alias{setcalib}
+\alias{wsdist}
+\alias{wsiFilter}
+\alias{wsFilter}
+\alias{writeF}
+\alias{readF}
+\alias{as.lm}
+\alias{setParms<-}
+\title{Undocumented functions}
+\description{These functions are undocumented. Some are internal and not intended for direct use. Some are not yet ready for end users. Others simply haven't been documented yet.}
+\usage{}
+\author{Witold E. Wolski}
+\keyword{misc}

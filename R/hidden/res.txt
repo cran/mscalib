@@ -1,0 +1,828 @@
+
+
+
+
+
+TEST1
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{info.massvector }
+\title{ Info Acces}
+\description{ access to the info field of the massvector. }
+\usage{info.massvector(massv,inf)}
+\arguments{
+\item{massv}{ massvector}
+\item{inf}{ info character. If missing function returns the current info. If not missing function returns massvector with new info field content.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\examples{
+ data(mve)
+ info(mve)
+ mve<-info(mve,"testname")
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{massvector }
+\title{ Constructor}
+\description{ massvector extends matrix }
+\usage{massvector(info,masses,tcoor)}
+\arguments{
+\item{info}{ a unique identifier for the list.}
+\item{masses}{ a matrix or a array with masses. First column must contain masses.}
+\item{tcoor}{ a array of length two if integer sample support coordinates.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{summary.massvector}
+\title{ Massvector Summaries}
+\description{ Generates a summary: min, max etc. }
+\usage{summary.massvector(mv)}
+\arguments{
+\item{mv}{ massvector}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ summary}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{mass.massvector}
+\title{ Mass Access.}
+\description{ Access to the mass field of a massvector. }
+\usage{mass.massvector(mv,mas,...)}
+\arguments{
+\item{mv}{ massvector}
+\item{mas}{ A array with masses. If missing function returns masses.}
+\item{...}{}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\examples{
+ data(mve)
+ mass(mve)
+ mass(mve,1:10)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{hist.massvector}
+\title{ Histograms}
+\description{ It eighter computes a normal histgram of the masses and intensities, or computes a fine graded histogram of the masses (overlay of two histograms) to show abundant masses. }
+\usage{hist.massvector(x,normal=TRUE,accur= 0.1,abund = 0, main=info(mvl) ,xlab="m/z",xlim=c(min(mass(x)),max(mass(x))),add=F,col=1,...)}
+\arguments{
+\item{x}{}
+\item{normal=TRUE}{}
+\item{accur= 0.1}{}
+\item{abund = 0}{}
+\item{ main=info(mvl) }{}
+\item{xlab="m/z"}{}
+\item{xlim=c(min(mass(x))}{}
+\item{max(mass(x)))}{}
+\item{add=F}{}
+\item{col=1}{}
+\item{...}{ further plotting arguments.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ hist}
+\examples{
+ data(mve)
+ hist(mve,normal=T)
+ hist(mve,normal=F)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{peaks.massvector}
+\title{ Data Access}
+\description{ Access to the mass field of the massvector. }
+\usage{peaks.massvector(x,masses,...)}
+\arguments{
+\item{x}{ massvector}
+\item{masses}{ matrix with masses in first column. If missing the matrix of the massvector is returned.}
+\item{...}{}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ mass}
+\examples{
+ mve<-massvector()
+ mve<- peaks(mve,cbind(1:10,1:10))
+ peaks(mve)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{image.massvector}
+\title{ Display a Color Image}
+\description{ Creates a grid of colored or gray-scale rectangles with colors  corresponding to the mass differences within the peaklist.  or within two peaklists. }
+\usage{image.massvector(mv,mv2,error=NULL,ppm=F,col=topo.colors(100),...)}
+\arguments{
+\item{mv}{ massvector}
+\item{mv2}{ massvector}
+\item{error=NULL}{}
+\item{ppm=F}{}
+\item{col=topo.colors(100)}{}
+\item{...}{}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ plot.massvector, hist.massvector}
+\examples{
+ data(mvle)
+ image(mvle[[1]],mvle[[2]])
+ image(mvle[[1]],mvle[[2]],error=500)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{min.massvector}
+\alias{ max.massvector }
+\title{ Maxima and Minima}
+\description{ Returns the maxima and minima of the masses and intensities }
+\usage{min.massvector(mv,...)}
+\arguments{
+\item{mv}{ massvector}
+\item{...}{}
+}
+\value{
+\item{ named array with minima of the columns of mv.}{}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{max.massvector}
+\alias{ min.massvector }
+\title{ Maxima and Minima}
+\description{ Returns the maxima and minima of the masses and intensities }
+\usage{max.massvector(mv,...)}
+\arguments{
+\item{mv}{ massvector}
+\item{...}{}
+}
+\value{
+\item{ named array with maxima of the columns of mv.}{}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{length.massvector}
+\usage{length.massvector(mv,...)}
+\arguments{
+\item{mv}{}
+\item{...}{}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{plot.massvector}
+\title{ Massvector Plotting}
+\description{ Function for plotting massvectors. If one massvector are given it shows a stick masspectrum.  If two massvectors are given their masses are plotted against each other. }
+\usage{plot.massvector(mv,...)}
+\arguments{
+\item{mv}{ massvector}
+\item{...}{ a second massvector and graphical parameters can be given as arguments to `plot'.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\examples{
+ data(mve)
+ data(mve2)
+ plot(mve)
+ plot(mve,mve2)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{mvFilter.massvector}
+\title{ Filtering Massvector}
+\description{ Filters massvector for masses given in a second massvector. }
+\usage{mvFilter.massvector(mv,abund,error=250,ppm=T,abundant=FALSE,uniq=FALSE)}
+\arguments{
+\item{mv}{ massvector}
+\item{abund}{ massvector}
+\item{error=250}{}
+\item{ppm=T}{}
+\item{abundant=FALSE}{}
+\item{uniq=FALSE}{}
+}
+\value{
+\item{ massvector }{ with matching or not matchin masses.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\examples{
+ data(mve)
+ data(mve2)
+ mvFilter(mve,mve2,error=250,abund=FALSE)
+ mvFilter(mve,mve2,error=250,abund=TRUE)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{print.massvector }
+\title{ Print massvector}
+\description{ `print' prints its argument and returns it invisibly (via `invisible(x)') }
+\usage{print.massvector(x)}
+\arguments{
+\item{x}{ massvector}
+}
+\value{
+\item{ info }{ the id of the massvector}
+\item{ name }{ name of the coordinates}
+\item{ coor }{ the coordinates on the sample support}
+\item{ data }{ the data matrix}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\examples{
+ data(mve)
+ print(mve)
+ plot(print(mve)$data)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{compare}
+\usage{compare(x,...)}
+\arguments{
+\item{x}{}
+\item{...}{}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{compare.massvector }
+\title{ Compares massvectors.}
+\description{ Compares the masses in the massvecotors. Returns the indices of the matching peaks given an measurment error.  Plots the relative or absolute error of matchin peaks. }
+\usage{compare.massvector(mv1,mv2,plot=TRUE,error=150,ppm=TRUE)}
+\arguments{
+\item{mv1}{ massvector}
+\item{mv2}{ massvector}
+\item{plot=TRUE}{}
+\item{error=150}{}
+\item{ppm=TRUE}{}
+}
+\value{
+\item{ plind }{ indices of masses in mv1 matching to masses in mv2}
+\item{ calind }{ indices of masses in  mv2 matchin to masses in mv1}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{mget.massvector}
+\title{ Field Access}
+\description{ Access to the fields in the massvector }
+\usage{mget.massvector(mv,attrn)}
+\arguments{
+\item{mv}{ massvector}
+\item{attrn}{ The value of which field to return. If missing the fields of the objects are returned.}
+}
+\value{
+\item{ xxx }{ depends which field in the massvector are accessed.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\examples{
+ data(mve)
+ mget(mve,"info")
+ mget(mve,"peaks")
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{as.matrix.massvector }
+\alias{ peaks.massvector }
+\title{ Matrices}
+\description{ Turns the massvector into a matrix }
+\usage{as.matrix.massvector(mv,...)}
+\arguments{
+\item{mv}{}
+\item{...}{}
+}
+\value{
+\item{ matrix }{ matrix with masses and intensities.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ peaks.massvector}
+\examples{
+ data(mve)
+ as.matrix(mve)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{"[.massvector"}
+\title{ Extract or Replace Parts of an Massvector}
+\description{ The massvector extends matrix. The masses and intensities can be accessed like a matrix.  Do not use mv[1:10] (not handled properly) }
+\usage{"[.massvector"(peak,i,j)}
+\arguments{
+\item{peak}{ object from which to extract elements}
+\item{i}{ row access}
+\item{j}{ column access}
+}
+\value{
+\item{ xxx }{ If rows are selected then a massvector is returned. If columns are accessed than arrays are returned.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ peaks.massvector, mass.massvector, mget.massvector}
+\examples{
+ data(mve)
+ mve[1:10,] # returns a massvector of length 10
+ mve[1:10,1] # the first ten masses are returned.
+ mve[,1] # the masses are returned.
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{c.massvector}
+\title{ Combine Massvectors into one Massvector.}
+\description{ Combines Massvectors to from a Massvector. }
+\usage{c.massvector(x,...)}
+\arguments{
+\item{x}{ massvector}
+\item{...}{ massvectors to be concatenated.}
+}
+\value{
+\item{ massvector }{ massvector}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ rbind}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{getPPGmasses }
+\title{ PPG masses.}
+\description{ Computes Poly-(Propylene Glycol) masses. }
+\usage{getPPGmasses(start=10,end=100)}
+\arguments{
+\item{start=10}{}
+\item{end=100}{}
+}
+\value{
+\item{ massvector }{ massvector of ppg masses}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{wsFilter.massvector}
+\title{ Smilanski Filtering}
+\description{ Chemical noise can be removed from the peptide mass lists  due to the strong clustering of mono-isotopic peptide  peaks. Following the distance measure and filtering  method proposed by Wool Smilanski we developed an algorithm to  classify masses as peptide and non-peptide. The algorithm is based  on a modified distance measure and hierarchical clustering of all  intra massvector distances. }
+\usage{wsFilter.massvector(mv,mdist=0.25,fraction=0.2)}
+\arguments{
+\item{mv}{ massvector.}
+\item{mdist=0.25}{}
+\item{fraction=0.2}{}
+}
+\value{
+\item{ indices }{  indices of masses which are identified as being nonpeptide}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{WsFilter.massvector }
+\alias{ WsFilter.massvectorlist }
+\title{ Smilanski Filtering}
+\description{ Removes chemical noise from the massvectorlist. }
+\usage{WsFilter.massvector(mv,mdist=0.25,fraction=0.2,peptides = TRUE)}
+\arguments{
+\item{mv}{ massvector.}
+\item{mdist=0.25}{}
+\item{fraction=0.2}{}
+\item{peptides = TRUE}{}
+}
+\details{ Chemical noise can be removed from the peptide mass lists  due to the strong clustering of mono-isotopic peptide  peaks. Following the distance measure and filtering  method proposed by Wool Smilanski we developed an algorithm to  classify masses as peptide and non-peptide. The algorithm is based  on a modified distance measure and hierarchical clustering of all  intra massvector distances. }
+\value{
+\item{ massvector }{  returns either a massvector of nonpeptide masses or massvector of peptide masses.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ wsFilter.massvector}
+\examples{
+ data(mve)
+ tmp <- WsFilter(mve,peptide=F)
+ plot(tmp)
+ tmp <- WsFilter(mve,peptide=T)
+ plot(tmp)
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{wsdist.massvector }
+\title{ Wool Smilanski Distance Matrix.}
+\description{ This function computes and returns the distance matrix computed by  using the distance intra massvecotor distance  measure. }
+\usage{wsdist.massvector(mv)}
+\arguments{
+\item{mv}{ massvector}
+}
+\value{
+\item{ dist }{ an object of class distance.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ WsFilter.massvector, wsFilter.massvector, distance, mmod}
+\examples{
+ data(mve)
+ plot(hclust(wsdist(mve),method="single"))
+}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{getextcalib.massvector }
+\alias{# mv # cS - calibspline }
+\title{ External Error Model}
+\description{ Returns the error model obtained from the calibration sample. }
+\usage{getextcalib.massvector(mv,calib,error=300)}
+\arguments{
+\item{mv}{ massvector}
+\item{calib}{ massvector with calibration masses}
+\item{error=300}{}
+}
+\details{# calibrates the masses using the a calibspline # gets massvector and returns one }
+\value{
+\item{ calibspline }{ can be used to calibrate peaklists}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ calibspline, applyextcalib, externalcalib }
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{applyextcalib.massvector }
+\title{ External Calbiration}
+\description{ Applys calibextstat object to massvector. }
+\usage{applyextcalib.massvector(mv,cS)}
+\arguments{
+\item{mv}{ massvector}
+\item{cS}{ calibspline}
+}
+\details{ In case of {\bf external calibration} some sample spots are only dedicated  to calibration. Calibration samples which produces equidistant  peaks, which exact masses are known, can be used to precisely  estimate the mass dependent error function. }
+\value{
+\item{ massvector }{ calibrated massvector}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ applyextcalib.massvectorlist, getextcalib.massvector, getextcalib.massvectorlist}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{calibexternal.massvector }
+\title{ External Calbiration}
+\description{ Perfroms external calibration, obtaining the error model and correcting the massvector in one step. }
+\usage{calibexternal.massvector(mv,ppg,calib)}
+\arguments{
+\item{mv}{ massvector}
+\item{ppg}{ either a massvector or massvectorlist with masses of the calibration sample (ppg?)}
+\item{calib}{ a massvector with exact masses of the calibration sample (ppg).}
+}
+\details{ In case of {\bf external calibration} some sample spots are only dedicated  to calibration. Calibration samples which produces equidistant  peaks, which exact masses are known, can be used to precisely  estimate the mass dependent error function. }
+\value{
+\item{ massvector}{ calibrated massvector}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ applyextcalib.massvectorlist, getextcalib.massvector, getextcalib.massvectorlist, calibexternal.massvector}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{recalibrate.massvector }
+\title{ Precalibration}
+\description{ Obtains the error and performs the calibration in one step. }
+\usage{recalibrate.massvector(mv)}
+\arguments{
+\item{mv}{ massvector}
+}
+\details{ {\bf Precalibration} method utilizes the knowledge that masses  of peptides are in equidistant spaced clusters. The wavelength of  the {\em massesvector} can be determined as described by  \cite{Wool}. The comparision of the experimental wavelength with  the theoretical one, makes possible to find an affine function  that corrects the masses. Chemical noise in the spectra may hamper  the determination of mass list frequency. The package provides a  function to filter chemical noise. }
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{applyrecalib.massvector}
+\title{ Precalibration}
+\description{ Uses the error model to to correct the masses }
+\usage{applyrecalib.massvector(mv,calc)}
+\arguments{
+\item{mv}{ massvector}
+\item{calc}{ object calbirestat class}
+}
+\details{ {\bf Precalibration} method utilizes the knowledge that masses  of peptides are in equidistant spaced clusters. The wavelength of  the {\em massesvector} can be determined as described by  \cite{Wool}. The comparision of the experimental wavelength with  the theoretical one, makes possible to find an affine function  that corrects the masses. Chemical noise in the spectra may hamper  the determination of mass list frequency. The package provides a  function to filter chemical noise. }
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ getrecalib.massvector, getrecalib.massvectorlist, recalibrate.massvector, recalibrate.massvectorlist, calibrestat, calibrelist}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{getrecalib.massvector}
+\title{ Precalibration}
+\description{ Obtains the an error model using the wavelength analysis of the peaklist. }
+\usage{getrecalib.massvector(mvl,plot=FALSE)}
+\arguments{
+\item{mvl}{}
+\item{plot=FALSE}{}
+}
+\details{ {\bf Precalibration} method utilizes the knowledge that masses  of peptides are in equidistant spaced clusters. The wavelength of  the {\em massesvector} can be determined as described by  \cite{Wool}. The comparision of the experimental wavelength with  the theoretical one, makes possible to find an affine function  that corrects the masses. Chemical noise in the spectra may hamper  the determination of mass list frequency. The package provides a  function to filter chemical noise. }
+\value{
+\item{ calibrestat }{ object of class calibrestat.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ recalibrated massvector, applyrecalib.massvector, massvector, calibrestat.}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{applyintcalib.massvector }
+\title{ Internal Calibration}
+\description{ Corrects the massvector for the error model stored in calibintstat object. }
+\usage{applyintcalib.massvector(mv,cal,ppm=TRUE)}
+\arguments{
+\item{mv}{ massvector}
+\item{cal}{ object of class calibextstat}
+\item{ppm=TRUE}{}
+}
+\details{ {\bf Internal calibration} aligns masses of  peaks to known masses and determines by linear regression a affine  function that describing the relative error. The internal  correction fails when no calibration peaks can be found. }
+\value{
+\item{ massvector }{ calibrated massvector. }
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ getintcalib.massvector, correctinternal.massvector, calibintstat.massvector}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{correctinternal.massvector}
+\alias{ correctinternal.massvectorlist }
+\title{ Internal Calibration}
+\description{ Corrects the massvector for the error model stored in calibexstat object. }
+\usage{correctinternal.massvector(mv,calib,error=500,uniq=F,ppm=TRUE)}
+\arguments{
+\item{mv}{ massvector}
+\item{calib}{ massvector with calibration masses}
+\item{error=500}{}
+\item{uniq=F}{}
+\item{ppm=TRUE}{}
+}
+\details{ {\bf Internal calibration} aligns masses of  peaks to known masses and determines by linear regression a affine  function that describing the relative error. The internal  correction fails when no calibration peaks can be found. }
+\value{
+\item{ massvector }{ calibrated massvector. }
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ getintcalib, correctinternal, calibintstat, getintcalib.massvector}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{getintcalib.massvector }
+\title{ Internal Calbiration.}
+\description{ Obtains error model using massvector with known masses. }
+\usage{getintcalib.massvector(mv,calib,error=500,uniq=FALSE,ppm=TRUE,...)}
+\arguments{
+\item{mv}{ massvector}
+\item{calib}{ massvector with calibration masses}
+\item{error=500}{}
+\item{uniq=FALSE}{}
+\item{ppm=TRUE}{}
+\item{...}{}
+}
+\details{ {\bf Internal calibration} aligns masses of  peaks to known masses and determines by linear regression a affine  function that describing the relative error. The internal  correction fails when no calibration peaks can be found. }
+\value{
+\item{ calibintstat }{ object of class calibintstat. }
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\seealso{ applyintcalib.massvector, getintcalib.massvector, correctinternla.massvectorlist, calibintstat}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{gamasses.massvector }
+\alias{ gamasses.massvectorlist }
+\title{ Abundant masses}
+\description{ Computes abundant masses in a massvector. }
+\usage{gamasses.massvector(mv,accur= 0.1,abund = 50)}
+\arguments{
+\item{mv}{ massvector}
+\item{accur= 0.1}{}
+\item{abund = 50}{}
+}
+\details{ Abundant masses are masses that occur in a large  fraction of the massvectors. Typical abundant mass  are derived from tryptic autoproteolysis products.  Abundant masses can also often be assigned to keratin  isoforms (human hair- and skin proteins).  Many of the abundant masses cannot be assigned to any protein.  Abundant masses can be used for calibration.  Removing them may increase the identification specificity. }
+\value{
+\item{ massvector }{ massvector with abundant masses.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
+
+
+
+
+
+TEST1
+\name{diffFilter.massvector}
+\title{ Abundant Differences}
+\description{ Removes masses from the massvector. }
+\usage{diffFilter.massvector(mv,listofdiffs,higher=TRUE,error=0.05)}
+\arguments{
+\item{mv}{ massvector}
+\item{listofdiffs}{}
+\item{higher=TRUE}{}
+\item{error=0.05}{}
+}
+\details{ Removes one of the masses contributing to a mass difference given in the list of diffs.  Can be used if a variable modification are present in the massvector but can not be considered by the identification software. }
+\value{
+\item{ massvector }{ filtered massvector.}
+}
+\author{Witold Wolski wolski@molgen.mpg.de}
+\keyword{misc}
+
+
