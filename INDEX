@@ -6,6 +6,7 @@
                         Replace Parts of an Object
 [Assing.massvectorlist
                         Replace Parts of Massvectorlist
+applycalib              Undocumented functions
 applycalib.calibintlist
                         Internal Calibration
 applycalib.calibintstat
@@ -110,6 +111,8 @@ mvFilter.massvectorlist
                         Filtering Massvector
 mvl                     A list of 333 massvectors with experimentally
                         determined peptide masses.
+mvll                    A list of 333 massvectors with experimentally
+                        determined peptide masses.
 peaks.massvector        Data Access
 plot.calibintlist       Calibintlist Plotting
 plot.calibintstat       Calibinstat Plotting
@@ -145,7 +148,6 @@ summary.calibspline     Calibspline Summaries
 summary.calibstat       Calibstat summary
 summary.massvector      Massvector Summaries
 summary.mlist           mist Summaries
-undocumented            Undocumented functions
 unlist.massvectorlist   Flatten massvectorlist
 writeF.massvector       Write massvector
 writeF.massvectorlist   Write massvectorlist

@@ -27,7 +27,7 @@
  data(mvl)
  res<-getdiff(mvl,range=c(0,100))
  hist(res)
- res<-gamasses(res,abund=400)
+ res<-gamasses(res,abund=100)
  test<-diffFilter(mvl,res,higher=TRUE,error=0.1,uniq=TRUE)
  test
 }

@@ -132,8 +132,9 @@ image.mlist<-function(x,what="",col=terrain.colors(100),...)
                                         #define layout
     nf <- layout(matrix(c(1,2),1,2),widths=c(5,1), TRUE)
     par(mar=c(3,3,2,0.5))
-                                        #2.03.2004    image(t(hello) , main=what,xaxs="i",yaxs="i",axes=FALSE,col=col,...)
-    image(hello , main=what,xaxs="i",yaxs="i",axes=FALSE,col=col,...)
+                                        #2.03.2004
+    image(t(hello) , main=what,xaxs="i",yaxs="i",axes=FALSE,col=col,...)
+    #image(hello , main=what,xaxs="i",yaxs="i",axes=FALSE,col=col,...)
     if((length(Y)-1)>0)
       {
         axis( 1 , at=seq(0,1,1/(length(Y)-1)) , labels=names(sort(Y)))
