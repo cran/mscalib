@@ -172,7 +172,7 @@ hist.massvectorlist<-function(x,accur = 0.1, main=info(mvl) ,xlab="m/z",xlim=c(7
     mhist[[2]] <- hist(mass(dat),breaks=seq(min(mass(dat))-accur,max(mass(dat))+accur,accur),add=TRUE,col=col,border=col)
   }
 
-plot.massvectorlist <-function(x, main=info(mvl) ,xlab="m/z",xlim=c(700,4500),add=FALSE,col=1,...)
+plot.massvectorlist <-function(x, main=info(mvl) ,xlab="m/z",xlim=c(700,4500),add=FALSE,col=1,cex=0.5,...)
 {
   ##t Massvectorlist Plotting
   ##- Plots masses (m/z) in massvector against sample in massvectorlist.
@@ -195,7 +195,7 @@ plot.massvectorlist <-function(x, main=info(mvl) ,xlab="m/z",xlim=c(700,4500),ad
     {
       for( x in 1:length(mvl))
         {
-          points(mass(mvl[[x]]), rep(x,length(mass(mvl[[x]]))),pch=15,cex=0.5,col=col)
+          points(mass(mvl[[x]]), rep(x,length(mass(mvl[[x]]))),pch=15,cex=cex,col=col)
         }
     }
   else
@@ -208,15 +208,15 @@ plot.massvectorlist <-function(x, main=info(mvl) ,xlab="m/z",xlim=c(700,4500),ad
       if(is.null(xlim))
         {
 
-          plot.default(mass(lod[[1]]), rep(1,length(mass(lod[[1]]))) , xlim = c(mmin,mmax) , ylim = c(1,length(lod)),pch=15,cex=0.5,xlab=xlab,ylab="sample",main=main,col=col,...)
+          plot.default(mass(lod[[1]]), rep(1,length(mass(lod[[1]]))) , xlim = c(mmin,mmax) , ylim = c(1,length(lod)),pch=15,cex=cex,xlab=xlab,ylab="sample",main=main,col=col,...)
         }
       else
         {
-          plot.default(mass(lod[[1]]), rep(1,length(mass(lod[[1]]))) , xlim = xlim , ylim = c(1,length(lod)) , pch=15 , cex=0.5 , xlab=xlab , ylab="sample" , main=main,col=col,...)
+          plot.default(mass(lod[[1]]), rep(1,length(mass(lod[[1]]))) , xlim = xlim , ylim = c(1,length(lod)) , pch=15, cex=cex , xlab=xlab , ylab="sample" , main=main,col=col,...)
         }
       for(x in 2:length(lod))
         {
-          points(mass(lod[[x]]), rep(x,length(mass(lod[[x]]))),pch=15,cex=0.5)
+          points(mass(lod[[x]]), rep(x,length(mass(lod[[x]]))),pch=15,cex=cex)
         }
       abline( h = seq(0,length(lod),10) , lty=3)
     }
@@ -624,10 +624,10 @@ applyintcalib.massvectorlist <- function(object,calc,...)
         tmp <- object[[names(calc)[x]]]
         tmp <- applyintcalib(tmp,calc[[x]])
         object[[names(calc)[x]]] <- tmp
-        if(x%%10==0)
-          cat(formatC(x,width=3)," ",sep="")
-        if(x%%100==0)
-          cat("\n")
+                                        #        if(x%%10==0)
+                                        #          cat(formatC(x,width=3)," ",sep="")
+                                        #        if(x%%100==0)
+                                        #          cat("\n")
       }
     cat("\n")
     object

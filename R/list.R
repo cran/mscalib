@@ -19,13 +19,12 @@ as.data.frame.mlist<-function(x,row.names=NULL,optional = FALSE)
     ##e test<-getintcalib(mvl,cal,error=500)
     ##e tmp<-as.data.frame(test)
     ##e names(tmp)
-    
-    res<-NULL
-    tmp<-as.matrix(x)
+    res <- NULL
+    tmp <- as.matrix(x)
     print("dim")
     print(dim(tmp))
-    ntmp<-names(x)
-    res<-data.frame(info=as.character(ntmp),tmp)
+    ntmp <- names(x)
+    res <- data.frame(info=as.character(ntmp),tmp)
     res
   }
 
@@ -131,6 +130,7 @@ image.mlist<-function(x,what="",col=terrain.colors(100),...)
 
     par(bg="gray")
     tmar<-par()$mar
+                                        #define layout
     nf <- layout(matrix(c(1,2),1,2),widths=c(5,1), TRUE)
     par(mar=c(3,3,2,0.5))
  
