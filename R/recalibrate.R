@@ -105,7 +105,6 @@ applycalib.calibrestat<-function(object,mv,...)
     ##e plot(res)
     ##e mv2<-applycalib(res,mv1)
     ##e plot(mv1[,1],mv2[,1]-mv1[,1])
-    
     peak<- (mv[,1]-mget(object,"Coeff.Intercept"))*(mget(object,"Coeff.Slope")/1e6+1)
     mv[,1] <- peak
     return(mv)

@@ -44,4 +44,4 @@
 \description{These functions are undocumented. Some are internal and not intended for direct use. Some are not yet ready for end users. Others simply haven't been documented yet.}
 \usage{}
 \author{Witold E. Wolski}
-\keyword{misc}
+\keyword{internal}
