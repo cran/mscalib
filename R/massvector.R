@@ -1457,12 +1457,15 @@ getdiff.massvector<-function(object,range=c(0,100),...)
 writeF.massvector<-function(object,path,file=info(object),ext="txt",...)
   {
     ##t Write massvector
-    ##- Write massvector to File
+    ##- Write massvector to File.
+    ##d The read and write functions for different peak-list formats are not provided by the package. This is because
+    ##d there are a oodles of different formats. I will try to collect read-write functions for as many as possible peak-list format's in an add on package
+    ##d which you can find at \url{http://www.molgen.mpg.de/~wolski/mscalib/IO/}.
     ##+ object : massvector
     ##+ path : path to folder.
     ##+ file : file name. defualt info(object)
     ##+ ext : file extension.
-    ##sa readBruker.massvector,readBruker.massvectorlist,writeF.massvectorlist
+    ##sa writeF.massvectorlist, readF.massvector
     ##e data(mv1)
     ##e writeF(mv1,".") # writes the file in the home directory.
     ##e readF(massvector(info(mv1)),".")
@@ -1488,11 +1491,22 @@ readF.massvector<-function(object,path,file=info(object),ext="txt",...)
   {
     ##t Read Massvector
     ##- Reads massvector written with the function \code{writeF.massvector}
+    ##d The read and write functions for all the different peak-list formats are not provided by the package. This is because
+    ##d there are oodles of different formats. I will try to collect read-write functions for as many as possible peak-list format's in an add on package
+    ##d which you can find at \url{http://www.molgen.mpg.de/~wolski/mscalib/IO/}.
+    ##d The file format of the file to be read must be:
+    ##d \code{>0_A1_1SRef:1,1}
+    ##d \code{842.4257236	650.66}
+    ##d \code{987.3931319	180.3}
+    ##d \code{...  ...}
+    ##d The char between > and : is read into the info field and used as a key in the massvectorlist. So it must be unique.
+    ##d After the double colon the coordinates have to written.
+    ##d The first column are the masses. The second column are the intensities.
     ##+ object : object of class massvector. Use constructor \code{massvector()}
     ##+ path : path to file.
     ##+ file : file name; default : info(object).
     ##+ ext : file extension; default : txt.
-    ##sa
+    ##sa writeF.massvector
     ##e data(mv1)
     ##e writeF(mv1,".")
     ##e readF(massvector(info(mv1)),".")

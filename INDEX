@@ -63,7 +63,6 @@ gamasses.massvectorlist
                         Abundant masses
 getPPGmasses            PPG masses
 getaccC                 Find Matching Masses
-getcoorBruker           Coordinates on Sample support.
 getdiff.massvector      Massdifferences
 getdiff.massvectorlist
                         Massdifferences
@@ -131,9 +130,6 @@ print.massvector        Print massvector
 print.massvectorlist    Print massvectorlist
 project.massvectorlist
                         Acces
-readBruker.massvector   Read peaklist.xml
-readBruker.massvectorlist
-                        Read Bruker XML File
 readF.massvector        Read Massvector
 readF.massvectorlist    Reads massvectorlist
 recalibrate.massvector
@@ -147,7 +143,7 @@ summary.calibintstat    Calibintstat Summaries
 summary.calibspline     Calibspline Summaries
 summary.calibstat       Calibstat summary
 summary.massvector      Massvector Summaries
-summary.mlist           My List Summaries
+summary.mlist           mist Summaries
 undocumented            Undocumented functions
 unlist.massvectorlist   Flatten massvectorlist
 writeF.massvector       Write massvector

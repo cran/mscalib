@@ -1,7 +1,7 @@
 \name{writeF.massvector}
 \alias{writeF.massvector}
 \title{ Write massvector}
-\description{ Write massvector to File }
+\description{ Write massvector to File. }
 \usage{\method{writeF}{massvector}(object,path,file=info(object),ext="txt",...)}
 \arguments{
 \item{...}{}
@@ -10,10 +10,10 @@
 \item{object}{ massvector}
 \item{path}{ path to folder.}
 }
+\details{ The read and write functions for different peak-list formats are not provided by the package. This is because  there are a oodles of different formats. I will try to collect read-write functions for as many as possible peak-list format's in an add on package  which you can find at \url{http://www.molgen.mpg.de/~wolski/mscalib/IO/}. }
 \author{Witold Wolski \email{wolski@molgen.mpg.de}}
-\seealso{\code{\link{readBruker.massvector}},
-\code{\link{readBruker.massvectorlist}},
-\code{\link{writeF.massvectorlist}},
+\seealso{\code{\link{writeF.massvectorlist}},
+\code{\link{readF.massvector}},
 }
 \examples{
  data(mv1)

@@ -1,6 +1,0 @@
-cal                     Calibration masses
-mv1                     Massvector with experimentally determined
-                        peptide masses.
-mvl                     A list of 333 massvectors with experimentally
-                        determined peptide masses.
-ppg                     A list of 12 massvectors wiht ppg masses.

@@ -892,11 +892,14 @@ writeF.massvectorlist<-function(object,path,file=experiment(object),ext="txt",..
   {
     ##t Write massvectorlist
     ##- Write massvectorlist to File
+    ##d The read and write functions for all the different peak-list formats are not provided by the package. This is because
+    ##d there are oodles of different formats. I will try to collect read-write functions for as many as possible peak-list format's in an add on package
+    ##d which you can find at \url{http://www.molgen.mpg.de/~wolski/mscalib/IO/}.
     ##+ object : massvectorlist.
     ##+ path : path to directory.
     ##+ file : file name. default experiment(object)
     ##+ ext : file extension. default txt.
-    ##sa readF.massvectorlist, readF.massvector, readBruker.massvector, readBruker.massvectorlist
+    ##sa readF.massvectorlist, readF.massvector
 
     
     filep <- file.path(path,paste(file,".",ext,sep=""),fsep = .Platform$file.sep)
@@ -918,10 +921,13 @@ readF.massvectorlist<-function(object,path,file=experiment(object),ext="txt",...
   {
     ##t Reads massvectorlist
     ##- written to disk with \code{writeF.massvectorlist}
+    ##d The read and write functions for all the different peak-list formats are not provided by the package. This is because
+    ##d there are oodles of different formats. I will try to collect read-write functions for as many as possible peak-list format's in an add on package
+    ##d which you can find at \url{http://www.molgen.mpg.de/~wolski/mscalib/IO/}.
     ##+ object :massvectorlist
     ##+ path : path to directory.
     ##+ file : file to read. default =experiment(object)
-    ##sa readF.massvector,writeF.massvectorlist,readBruker.massvectorlist
+    ##sa readF.massvector,writeF.massvectorlist
     ##e data( mvl )
     ##e mvl
     ##e writeF( mvl , "." )
