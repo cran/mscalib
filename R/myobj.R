@@ -1,3 +1,4 @@
+#Copyright 2004, W. Wolski, all rights reserved.
 mget.myobj <- function(object,attrn,...)
   {
     ##t Field Access

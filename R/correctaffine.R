@@ -1,3 +1,4 @@
+#Copyright 2001, W. Wolski, all rights reserved.
 ##calibintstat - object with calibration statistics
 ##calibintlist - collection with calibration data.
 #this is an calibration object.

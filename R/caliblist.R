@@ -1,3 +1,4 @@
+#Copyright 2004, W. Wolski, all rights reserved.
 ############################################
 ##calibstat
 #
@@ -127,7 +128,7 @@ print.caliblist <- function(x,...)
     ##e plot(res)
     
     tmp<-NextMethod("[")
-    res<- caliblist(class(x)[1],mget(x,"experiment"),tmp,project=project(mvl))
+    res<- caliblist(class(x)[1],mget(x,"experiment"),tmp,project=mget(x,"project"))
     res
   }
 

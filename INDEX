@@ -1,11 +1,11 @@
 [.caliblist             Extract Parts of a Caliblist.
 [.massvector            Extract Parts of an Massvector
 [.massvectorlist        Extract Parts of an Massvectorlist.
-[Assing.massvectorlist
-                        Replace Parts of Massvectorlist
 [[Assing.caliblist      Replace calibstat object in the caliblist.
 [[Assing.massvectorlist
                         Replace Parts of an Object
+[Assing.massvectorlist
+                        Replace Parts of Massvectorlist
 applycalib.calibintlist
                         Internal Calibration
 applycalib.calibintstat
@@ -61,7 +61,6 @@ experiment.mlist        Info Acces
 gamasses.massvector     Abundant masses
 gamasses.massvectorlist
                         Abundant masses
-getPPGmasses            PPG masses
 getaccC                 Find Matching Masses
 getdiff.massvector      Massdifferences
 getdiff.massvectorlist
@@ -76,6 +75,7 @@ getintcalib.massvector
                         Internal Calbiration.
 getintcalib.massvectorlist
                         Internal Calbiration
+getPPGmasses            PPG masses
 getrecalib.massvector   Precalibration
 getrecalib.massvectorlist
                         Precalibration
@@ -148,8 +148,8 @@ undocumented            Undocumented functions
 unlist.massvectorlist   Flatten massvectorlist
 writeF.massvector       Write massvector
 writeF.massvectorlist   Write massvectorlist
+wsdist.massvector       Wool Smilanski Distance Matrix
 wsFilter.massvector     Smilanski Filtering
 wsFilter.massvectorlist
                         Smilanski Filtering
-wsdist.massvector       Wool Smilanski Distance Matrix
 wsiFilter.massvector    Smilanski Filtering

@@ -1,3 +1,4 @@
+#Copyright 2004, W. Wolski, all rights reserved.
 as.data.frame.mlist<-function(x,row.names=NULL,optional = FALSE)
   {
     ##t Data Frames
@@ -244,6 +245,7 @@ subset.mlist <- function(x,subset,...)
     
     
     u <- as.data.frame(x)
+    print("test")
     if (missing(subset))
       {
         r <- TRUE

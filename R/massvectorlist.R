@@ -1,4 +1,5 @@
-#massvector list.
+#Copyright 2004, W. Wolski, all rights reserved.
+                                        #massvector list.
 massvectorlist <- function(experiment,data,project,...)
   {
     ##t Constructor
@@ -719,12 +720,13 @@ getglobalcalib.massvectorlist<-function(object , calib , error=500,ppm=TRUE, lab
     ##e data(cal)
     ##e res<-getglobalcalib(mvl,cal,error=500,ppm=TRUE)
     ##e hist(res)
+    if(accur<0.01) stop("error to small")
     mabund <- gamasses(object , accur=accur , abund=abund , ...)
     while(length(mabund)<15)
       {
         print("finding abundant masses")
         abund <- abund - 5
-        print(accur)
+        print(abund)
         mabund <- gamasses(object , accur=accur , abund=abund , ... )
       }
     if(length(mabund)>labund)

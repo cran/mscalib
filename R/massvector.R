@@ -1,4 +1,4 @@
-
+#Copyright 2004, W. Wolski, all rights reserved.
 
                                         #constructor
                                         #massvector
@@ -90,7 +90,7 @@ massvector <- function(info,masses,tcoor)
     }
   if(!missing(tcoor))
     {
-      if(length(tcor)!=2){stop("There must be two coordinates!\n")}
+      if(length(tcoor)!=2){stop("There must be two coordinates!\n")}
       attr(masses,"tcoor") <- tcoor
     }
   attr(masses,"allow")<-c("info","tcoor")
@@ -164,7 +164,7 @@ mass.massvector<-function(object,mas,...)
 hist.massvector<-function(x,accur = 0.1,abund = 0, main=info(x) ,xlab="m/z",xlim=c(min(mass(x)),max(mass(x))),add=FALSE,col=1,...)
   {
     ##t Histograms
-    ##- It either computes a normal histgram of the masses and intensities, or computes a fine graded histogram of the masses to show abundant masses.
+    ##- Histograms
     ##+ accur : sets the bin width of the histogramm.
     ##+ abund : draws a horizontal line at the frequency given by abund.
     ##+ xlab : sets the xlabels.
@@ -174,12 +174,8 @@ hist.massvector<-function(x,accur = 0.1,abund = 0, main=info(x) ,xlab="m/z",xlim
     ##+ ... : further plotting arguments.
     ##sa hist
     ##e data(mv1)
-    ##e hist(mv1,normal=TRUE)
-    ##e hist(mv1,normal=FALSE)
-    
-                                        #attributes(dat)<-NULL
+    ##e hist(mv1)
     mhist<-list(NULL)
-    
                                         #assign indices of bins with high peak abundance
     mhist[[1]] <- hist(mass(x),breaks=seq(min(mass(x))-accur/2,max(mass(x))+1.5*accur,accur),plot=TRUE,main=main,xlab=xlab,xlim=xlim,add=add,col=col,border=col,...)
     mhist[[2]] <- hist(mass(x),breaks=seq(min(mass(x))-accur,max(mass(x))+accur,accur),add=TRUE,col=col,border=col)
@@ -1529,4 +1525,5 @@ readF.massvector<-function(object,path,file=info(object),ext="txt",...)
     object <- peaks(object,res)
     return(object)
   }
+
 

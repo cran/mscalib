@@ -1,4 +1,4 @@
-
+#Copyright 2004, W. Wolski, all rights reserved.
 getaccC<- function(pl,cal,error=500,ppm=TRUE,uniq=FALSE)
 {
   ##t Find Matching Masses
@@ -11,7 +11,6 @@ getaccC<- function(pl,cal,error=500,ppm=TRUE,uniq=FALSE)
   ##e getaccC(1001:1010,1001:1010,error=300,ppm=TRUE,uniq=TRUE)
   lpl <- length(pl)
   lcal <- length(cal)
-  
   #cat("lpl ",lpl, " lcal ",lcal," lmods ",lmods,"\n")
   tmp <- max(lpl,lcal) # there can not be more matches than tmp.
   plind <- rep(0,lpl*lcal)
@@ -32,8 +31,6 @@ getaccC<- function(pl,cal,error=500,ppm=TRUE,uniq=FALSE)
               as.integer(ind),
               as.integer(ppm),
        )
-  
-    
     }
     else
     {

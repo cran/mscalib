@@ -1,3 +1,4 @@
+#Copyright 2004, W. Wolski, all rights reserved.
                                         #generic methods provided by the package
                                         #function used at least by more than one object.
                                         #plot

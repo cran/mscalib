@@ -1,3 +1,4 @@
+#Copyright 2004, W. Wolski, all rights reserved.
 ##not neccessary - its the same for each peaklist
 ##
 
