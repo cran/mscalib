@@ -1,19 +1,3 @@
-info.massvector <- function(object,info,...)
-  {
-    ##t Info Acces
-    ##- access to the info field of the massvector.
-    ##+ object : massvector
-    ##+ info : info character. If missing function returns the current info. If not missing function returns massvector with new info field content.
-    ##e data(mv1)
-    ##e info(mv1)
-    ##e mv1<-info(mv1,"testname")
-    if(!missing(info))
-      {
-        attr(object,"info")<-info
-        return(object)
-      }
-    return(attr(object,"info"))
-  }
 
 
                                         #constructor
@@ -133,6 +117,15 @@ summary.massvector<-function(object,...)
     res
   }
 
+as.vector.massvector<-function(x, mode="any")
+  {
+    ##t Vector
+    ##- Casts massvector into vector. It does it by calling the summary.massvector method first and unlisting the result.
+    ##+ x : massvector
+    ##e data(mv1)
+    ##e as.vector(mv1)
+    unlist(summary(x))
+  }
 
 mass.massvector<-function(object,mas,...)
   {
@@ -999,7 +992,7 @@ applyrecalib.massvector<-function(object,calc,...)
     ##e compare(mv1,mv2)
 
     
-    peak<- (object[,1]-mget(calc,"Coeff.Intercept"))*(mget(calc,"Coeff.Slope")/1e6+1)
+    peak<- object[,1]*(mget(calc,"Coeff.Slope")/1e6+1) + mget(calc,"Coeff.Intercept")
     object[,1] <- peak
     return(object)
   }
@@ -1084,8 +1077,8 @@ getrecalib.massvector<-function(object,plot=FALSE,...)
     res<-calibrestat(info(object))
     tmp<-c(bmax,alpha)
     names(tmp)<- c("Intercept","Slope")
-    setParms(res)<-list(Coeff.Intercept=tmp[1])
-    setParms(res)<-list(Coeff.Slope=(tmp[2]-1)*1e6)
+    setParms(res)<-list(Coeff.Intercept=- (tmp[1]*tmp[2]))
+    setParms(res)<-list(Coeff.Slope=(tmp[2]*1e6-1e6))
     setParms(res)<-list(lengthmv = length(object))
     setParms(res)<-list(tcoor=mget(object,"tcoor"))
     tmp <- FullWidthatHalfMaximum(sumcol)
@@ -1473,7 +1466,7 @@ writeF.massvector<-function(object,path,file=info(object),ext="txt",...)
     ##e data(mv1)
     ##e writeF(mv1,".") # writes the file in the home directory.
     ##e readF(massvector(info(mv1)),".")
-    ##e file.remove(paste(massvector(info(mv1)),"txt",sep=""))
+    ##e file.remove(paste(info(mv1),".txt",sep=""))
     
     if(missing(path))
       {
@@ -1493,7 +1486,7 @@ writeF.massvector<-function(object,path,file=info(object),ext="txt",...)
 
 readF.massvector<-function(object,path,file=info(object),ext="txt",...)
   {
-    ##t Read Massvector.
+    ##t Read Massvector
     ##- Reads massvector written with the function \code{writeF.massvector}
     ##+ object : object of class massvector. Use constructor \code{massvector()}
     ##+ path : path to file.
@@ -1503,6 +1496,7 @@ readF.massvector<-function(object,path,file=info(object),ext="txt",...)
     ##e data(mv1)
     ##e writeF(mv1,".")
     ##e readF(massvector(info(mv1)),".")
+    ##e file.remove(paste(info(mv1),".txt",sep=""))
     filep <- file.path(path,paste(file,".",ext,sep="") , fsep = .Platform$file.sep)
     con<-file(filep,"r")
     res <- readLines(con=filep,n=-1)

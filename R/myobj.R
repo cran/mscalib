@@ -57,3 +57,19 @@ mget.myobj <- function(object,attrn,...)
   }
 
 
+info.myobj <- function(object,info,...)
+  {
+    ##t Info Acces
+    ##- access to the info field of the massvector.
+    ##+ object : massvector
+    ##+ info : info character. If missing function returns the current info. If not missing function returns massvector with new info field content.
+    ##e data(mv1)
+    ##e info(mv1)
+    ##e mv1<-info(mv1,"testname")
+    if(!missing(info))
+      {
+        attr(object,"info")<-info
+        return(object)
+      }
+    return(attr(object,"info"))
+  }

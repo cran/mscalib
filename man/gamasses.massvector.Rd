@@ -2,7 +2,7 @@
 \alias{gamasses.massvector}
 \title{ Abundant masses}
 \description{ Determines abundant masses in a massvector. }
-\usage{\method{gamasses}{massvector}(object,accur= 0.1,abund = 50,...)}
+\usage{\method{gamasses}{massvector}(object,accur = 0.1,abund = 50,...)}
 \arguments{
 \item{...}{ further parameters.}
 \item{abund}{ how many times a mass have to occur in a mass bin to be considered as an abundant mass.}

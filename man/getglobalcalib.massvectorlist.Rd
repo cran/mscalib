@@ -2,7 +2,7 @@
 \alias{getglobalcalib.massvectorlist}
 \title{ Set Based Internal Calbiration}
 \description{ Obtains error model using massvector with known masses. }
-\usage{\method{getglobalcalib}{massvectorlist}(object, calib , error=500,ppm=TRUE, labund=12, abund = length(object)/5 , accur = ifelse(ppm,error/2000,error) ,...)}
+\usage{\method{getglobalcalib}{massvectorlist}(object , calib , error=500,ppm=TRUE, labund=12, abund = length(object)/5 , accur = ifelse(ppm,error/2000,error) ,...)}
 \arguments{
 \item{...}{ further parameters.}
 \item{abund}{ default =  length(object)/5}

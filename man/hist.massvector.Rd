@@ -2,7 +2,7 @@
 \alias{hist.massvector}
 \title{ Histograms}
 \description{ It either computes a normal histgram of the masses and intensities, or computes a fine graded histogram of the masses to show abundant masses. }
-\usage{\method{hist}{massvector}(x,accur= 0.1,abund = 0, main=info(x) ,xlab="m/z",xlim=c(min(mass(x)),max(mass(x))),add=FALSE,col=1,...)}
+\usage{\method{hist}{massvector}(x,accur = 0.1,abund = 0, main=info(x) ,xlab="m/z",xlim=c(min(mass(x)),max(mass(x))),add=FALSE,col=1,...)}
 \arguments{
 \item{...}{ further plotting arguments.}
 \item{abund}{ draws a horizontal line at the frequency given by abund.}

@@ -19,6 +19,6 @@
  data(mv1)
  writeF(mv1,".") # writes the file in the home directory.
  readF(massvector(info(mv1)),".")
- file.remove(paste(massvector(info(mv1)),"txt",sep=""))
+ file.remove(paste(info(mv1),".txt",sep=""))
 }
 \keyword{misc}

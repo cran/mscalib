@@ -2,7 +2,7 @@
 \alias{getintcalib.massvectorlist}
 \title{ Internal Calbiration}
 \description{ Obtains error model using massvector with known masses. }
-\usage{\method{getintcalib}{massvectorlist}(object,calib,error=500,ppm=TRUE,... )}
+\usage{\method{getintcalib}{massvectorlist}(object,calib,error=500,ppm=TRUE, ... )}
 \arguments{
 \item{...}{}
 \item{calib}{ massvector with calibration masses}

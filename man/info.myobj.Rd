@@ -1,8 +1,8 @@
-\name{info.massvector}
-\alias{info.massvector}
+\name{info.myobj}
+\alias{info.myobj}
 \title{ Info Acces}
 \description{ access to the info field of the massvector. }
-\usage{\method{info}{massvector}(object,info,...)}
+\usage{\method{info}{myobj}(object,info,...)}
 \arguments{
 \item{...}{}
 \item{info}{ info character. If missing function returns the current info. If not missing function returns massvector with new info field content.}

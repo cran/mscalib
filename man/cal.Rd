@@ -6,4 +6,3 @@
 \description{A massvector with calibration masses. (mainly trypsin autoproteolysis peaks)}                                
 \author{Witold E. Wolski}         
 \keyword{datasets}     
-               

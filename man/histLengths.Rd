@@ -2,7 +2,7 @@
 \alias{histLengths}
 \title{ Histograms}
 \description{ Histogram of the massvector lengths. }
-\usage{histLengths(x,main=info(x),xlab="lengthof massvectors",...)}
+\usage{histLengths(x,main=info(x),xlab="length of massvectors",...)}
 \arguments{
 \item{...}{ further parameters.}
 \item{main}{ info(x)}

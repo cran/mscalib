@@ -2,7 +2,7 @@
 \alias{wsiFilter.massvector}
 \title{ Smilanski Filtering}
 \description{ The function returns the inidces of masses identified as chemical noise. }
-\usage{\method{wsiFilter}{massvector}(object, mdist=0.25 , fraction=0.2 , ... )}
+\usage{\method{wsiFilter}{massvector}(object , mdist=0.25 , fraction=0.2 , ... )}
 \arguments{
 \item{...}{ further arguments.}
 \item{fraction}{ maximal fraction (nr masses in branch)/(length of massvector) of branche  to be prune.}

@@ -1,16 +1,16 @@
-\name{as.matrix.caliblist}
-\alias{as.matrix.caliblist}
+\name{as.matrix.mlist}
+\alias{as.matrix.mlist}
 \title{ Matrices}
 \description{ Turns the caliblist into a matrix }
-\usage{\method{as.matrix}{caliblist}(x)}
+\usage{\method{as.matrix}{mlist}(x)}
 \arguments{
 \item{x}{ caliblist}
 }
 \value{
-\item{ matrix }{ matrix with masses and intensities.}
+\item{ matrix }{ matrix}
 }
 \author{Witold Wolski \email{wolski@molgen.mpg.de}}
-\seealso{\code{\link{as.data.frame.caliblist}},
+\seealso{\code{\link{as.data.frame.mlist}},
 }
 \examples{
  data(mvl)
@@ -20,5 +20,9 @@
  tmp<-as.matrix(test)
  colnames(tmp)
  dim(tmp)
+ data(mvl)
+ tmp<-as.matrix(mvl)
+ print(colnames(mvl))
+ plot(tmp[,"lengthmv"],tmp[,"mass.Min."])
 }
 \keyword{misc}

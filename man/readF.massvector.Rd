@@ -1,6 +1,6 @@
 \name{readF.massvector}
 \alias{readF.massvector}
-\title{ Read Massvector.}
+\title{ Read Massvector}
 \description{ Reads massvector written with the function \code{writeF.massvector} }
 \usage{\method{readF}{massvector}(object,path,file=info(object),ext="txt",...)}
 \arguments{
@@ -16,5 +16,6 @@
  data(mv1)
  writeF(mv1,".")
  readF(massvector(info(mv1)),".")
+ file.remove(paste(info(mv1),".txt",sep=""))
 }
 \keyword{misc}

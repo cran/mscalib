@@ -2,7 +2,7 @@
 \alias{wsFilter.massvector}
 \title{ Smilanski Filtering}
 \description{ Removes chemical noise from the massvectorlist. }
-\usage{\method{wsFilter}{massvector}(object,mdist=0.25,fraction=0.2,peptides=TRUE,...)}
+\usage{\method{wsFilter}{massvector}(object,mdist=0.25,fraction=0.2, peptides=TRUE,...)}
 \arguments{
 \item{...}{ further parameters.}
 \item{fraction}{ maximal size of branche (nr masses in branch)/(length of massvector) to be cut.}

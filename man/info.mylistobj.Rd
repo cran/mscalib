@@ -2,7 +2,7 @@
 \alias{info.mylistobj}
 \title{ Info Acces}
 \description{ access to the info field of the mylistobj }
-\usage{\method{info}{mylistobj}(object,info, ...)}
+\usage{\method{info}{mylistobj}(object,info , ...)}
 \arguments{
 \item{...}{}
 \item{info}{ info character. If missing function returns the current info. If not missing function returns mylistobj with new info field content.}

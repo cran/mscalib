@@ -1,8 +1,8 @@
-\name{subset.list}
-\alias{subset.list}
+\name{subset.mlist}
+\alias{subset.mlist}
 \title{ Subset mlist}
 \description{ Return subsets of list elements which meet conditions. }
-\usage{\method{subset}{list}(x,subset,...)}
+\usage{\method{subset}{mlist}(x,subset,...)}
 \arguments{
 \item{...}{}
 \item{subset}{ logical expression.}

@@ -28,24 +28,19 @@ applyrecalib.massvector
                         Precalibration
 applyrecalib.massvectorlist
                         Recalibration
-as.data.frame.caliblist
-                        Data Frames
-as.data.frame.massvectorlist
-                        Data Frames
+as.data.frame.mlist     Data Frames
 as.list.massvectorlist
                         List
 as.lm.calibintstat      Fitting Linear Models
-as.matrix.caliblist     Matrices
 as.matrix.massvector    Matrices
-as.matrix.massvectorlist
-                        Matrices
+as.matrix.mlist         Matrices
 as.vector.calibintstat
                         Coerces to vectors
 as.vector.calibrestat   Coerces to vector
+as.vector.massvector    Vector
 c.massvector            Combine Massvectors into one Massvector.
 c.massvectorlist        Combine
 cal                     Calibration masses
-calib                   Massvector with Calibration Masses
 calibexternal.massvector
                         External Calbiration
 calibexternal.massvectorlist
@@ -97,8 +92,8 @@ histLengths             Histograms
 image.massvector        Display a Color Image
 image.mlist             Display a Color Image
 image.mylistobj         image
-info.massvector         Info Acces
 info.mylistobj          Info Acces
+info.myobj              Info Acces
 length.massvector       Length of Massvector
 mass.massvector         Mass Access.
 massvector              Constructor
@@ -139,7 +134,7 @@ project.massvectorlist
 readBruker.massvector   Read peaklist.xml
 readBruker.massvectorlist
                         Read Bruker XML File
-readF.massvector        Read Massvector.
+readF.massvector        Read Massvector
 readF.massvectorlist    Reads massvectorlist
 recalibrate.massvector
                         Precalibration
@@ -147,14 +142,12 @@ recalibrate.massvectorlist
                         Precalibration
 setParms<-.mylistobj    Field Access
 setParms<-.myobj        Field Access
-subset.list             Subset mlist
+subset.mlist            Subset mlist
 summary.calibintstat    Calibintstat Summaries
-summary.caliblist       Massvector Summaries
 summary.calibspline     Calibspline Summaries
 summary.calibstat       Calibstat summary
 summary.massvector      Massvector Summaries
-summary.massvectorlist
-                        Massvector Summaries
+summary.mlist           My List Summaries
 undocumented            Undocumented functions
 unlist.massvectorlist   Flatten massvectorlist
 writeF.massvector       Write massvector

@@ -2,7 +2,7 @@
 \alias{globalcalib.massvectorlist}
 \title{ Set Based Internal Calibration}
 \description{ Determines the error and corrects for it. }
-\usage{\method{globalcalib}{massvectorlist}(object, calib , error=500, labund = 12, ppm=TRUE , abund=length(object)/5,accur = ifelse(ppm,error/2000,error) ,...)}
+\usage{\method{globalcalib}{massvectorlist}(object , calib , error=500, labund = 12, ppm=TRUE , abund=length(object)/5,accur = ifelse(ppm,error/2000,error) ,...)}
 \arguments{
 \item{...}{ further parameters.}
 \item{abund}{ default  }

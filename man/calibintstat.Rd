@@ -2,7 +2,7 @@
 \alias{calibintstat}
 \title{ Constructor}
 \description{ Returns an object of class calibintstat. Is used by function \code{getintcalib}. }
-\usage{calibintstat(info, lm , ...)}
+\usage{calibintstat(info , lm , ...)}
 \arguments{
 \item{...}{ further parameters Coef.Intercept, Coef.Slope, lengthmv, nrmatch, error.mean, error.stdv, ppm.}
 \item{info}{ identifier of the calibstat object. Links it with the massvector.}

@@ -2,7 +2,7 @@
 \alias{hist.massvectorlist}
 \title{ Histograms}
 \description{ Histogram of mass frequencies in the massvectorlist. }
-\usage{\method{hist}{massvectorlist}(x,accur= 0.1, main=info(mvl) ,xlab="m/z",xlim=c(700,4500),add=FALSE,col=1,...)}
+\usage{\method{hist}{massvectorlist}(x,accur = 0.1, main=info(mvl) ,xlab="m/z",xlim=c(700,4500),add=FALSE,col=1,...)}
 \arguments{
 \item{...}{ further parameters.}
 \item{accur}{ bin width for plotting mass frequencies.}
