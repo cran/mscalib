@@ -1,0 +1,12 @@
+Revision history for the R/mscalib package
+----------------------------------------------------------------------
+copyright (c) 2003, Witold E. Wolski, Max Planck Institute For Moleculare Genetics
+Licensed under the GNU General Public License version 2 (June, 1991)
+http://www.molgen.mpg.de/~wolski/mscalib
+----------------------------------------------------------------------
+
+Version 0.5.4, 12/30/2003:
+
+Moved ReadBruker.massvector and ReadBruker.massvectorlist out of R/mscalib to
+the mscalib extension package peaklistIO.
+R/peaklistIO you can find at www.molgen.mpg.de/~wolski/mscalib/IO/.
